@@ -6,15 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: 队列 | CC</title>
+  <title>红黑树 | CC</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="CC">
-<meta property="og:url" content="http://yoursite.com/tags/%E9%98%9F%E5%88%97/index.html">
+  <meta name="description" content="红黑树入门笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="红黑树">
+<meta property="og:url" content="http://yoursite.com/2020/06/18/%E7%BA%A2%E9%BB%91%E6%A0%91/index.html">
 <meta property="og:site_name" content="CC">
+<meta property="og:description" content="红黑树入门笔记">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="c:%5CUsers%5Czhuyu%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200320200726091.png">
+<meta property="og:image" content="https://img-blog.csdn.net/20171028114059951?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGVvbmxpdTE5OTU=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="article:published_time" content="2020-06-18T13:53:25.000Z">
+<meta property="article:modified_time" content="2020-06-18T13:57:09.334Z">
 <meta property="article:author" content="CC-fake">
+<meta property="article:tag" content="查找">
+<meta property="article:tag" content="平衡树">
+<meta property="article:tag" content="红黑树">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="c:%5CUsers%5Czhuyu%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200320200726091.png">
   
     <link rel="alternative" href="/atom.xml" title="CC" type="application/atom+xml">
   
@@ -148,68 +158,75 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-红黑树" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/02/%E7%AE%97%E6%B3%95%E7%AC%AC%E5%9B%9B%E7%89%88%E7%AC%AC%E4%B8%80%E7%AB%A0/" class="archive-article-date">
-  	<time datetime="2020-03-02T13:56:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-02</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/02/%E7%AE%97%E6%B3%95%E7%AC%AC%E5%9B%9B%E7%89%88%E7%AC%AC%E4%B8%80%E7%AB%A0/">算法第四版第一章</a>
+    <h1 class="article-title" itemprop="name">
+      红黑树
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2020/06/18/%E7%BA%A2%E9%BB%91%E6%A0%91/" class="archive-article-date">
+  	<time datetime="2020-06-18T13:53:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>红黑树入门笔记</p>
+<a id="more"></a>
+
+<h2 id="红黑树"><a href="#红黑树" class="headerlink" title="红黑树"></a>红黑树</h2><h3 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h3><ul>
+<li><p>与普通二叉搜索树类似</p>
+</li>
+<li><p>红结点只出现在左子结点，新插入的结点为红结点，通过操作平衡红黑树</p>
+</li>
+<li><p><img src="C:%5CUsers%5Czhuyu%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200320200726091.png" alt="image-20200320200726091"></p>
+</li>
+<li><p>删除算法基本操作</p>
+<p>将遇到的二结点都变为三结点或者四结点</p>
+<p><img src="https://img-blog.csdn.net/20171028114059951?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGVvbmxpdTE5OTU=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="二结点构造成三结点"></p>
+</li>
+</ul>
+<h3 id="算法实现"><a href="#算法实现" class="headerlink" title="算法实现"></a>算法实现</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BRT</span>&lt;<span class="title">Key</span> <span class="keyword">extends</span> <span class="title">Comparable</span>&lt;<span class="title">Key</span>&gt;, <span class="title">Value</span>&gt;</span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Node root;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">boolean</span> RED = <span class="keyword">true</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">boolean</span> BLACK = <span class="keyword">false</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">Node</span></span></span><br><span class="line"><span class="class">    </span>&#123;</span><br><span class="line">        Key key;</span><br><span class="line">        Value value;</span><br><span class="line">        <span class="keyword">int</span> N;</span><br><span class="line">        <span class="keyword">boolean</span> color;</span><br><span class="line">        Node left, right;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">Node</span><span class="params">(Key key, Value value, <span class="keyword">int</span> N, <span class="keyword">boolean</span> color)</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.key = key;</span><br><span class="line">            <span class="keyword">this</span>.value = value;</span><br><span class="line">            <span class="keyword">this</span>.N = N;</span><br><span class="line">            <span class="keyword">this</span>.color = color;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">size</span><span class="params">(Node x)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (x == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> x.N;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">size</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> size(root);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">isRed</span><span class="params">(Node x)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (x == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">return</span> x.color == RED;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> Node <span class="title">rotateLeft</span><span class="params">(Node h)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        Node x = h.right;</span><br><span class="line">        h.right = x.left;</span><br><span class="line">        x.left = h;</span><br><span class="line">        x.color = h.color;</span><br><span class="line">        h.color = RED;</span><br><span class="line">        x.N = h.N;</span><br><span class="line">        h.N = <span class="number">1</span> + size(h.left) + size(h.right);</span><br><span class="line">        <span class="keyword">return</span> x;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> Node <span class="title">rotateRight</span><span class="params">(Node h)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        Node x = h.left;</span><br><span class="line">        h.left = x.right;</span><br><span class="line">        x.right = h;</span><br><span class="line">        x.color = h.color;</span><br><span class="line">        h.color = RED;</span><br><span class="line">        x.N = h.N;</span><br><span class="line">        h.N = <span class="number">1</span> + size(h.left) + size(h.right);</span><br><span class="line">        <span class="keyword">return</span> x;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">flipColor</span><span class="params">(Node x)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        x.left.color = BLACK;</span><br><span class="line">        x.right.color = BLACK;</span><br><span class="line">        x.color = RED;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">put</span><span class="params">(Key key, Value value)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        root = put(root, key, value);</span><br><span class="line">        root.color = BLACK;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> Node <span class="title">put</span><span class="params">(Node h, Key key, Value value)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (h == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">new</span> Node(key, value, <span class="number">1</span>, RED);</span><br><span class="line">        <span class="keyword">int</span> cmp = key.compareTo(h.key);</span><br><span class="line">        <span class="keyword">if</span> (cmp &lt; <span class="number">0</span>) h.left = put(h.left, key, value);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (cmp &gt; <span class="number">0</span>) h.left = put(h.right, key, value);</span><br><span class="line">        <span class="keyword">else</span> h.value = value;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (isRed(h.right) &amp;&amp; !isRed(h.left)) rotateRight(h);</span><br><span class="line">        <span class="keyword">if</span> (isRed(h.left.left) &amp;&amp; isRed(h.left)) rotateLeft(h);</span><br><span class="line">        <span class="keyword">if</span> (isRed(h.right) &amp;&amp; isRed(h.left)) flipColor(h);</span><br><span class="line"></span><br><span class="line">        h.N = <span class="number">1</span> + size(h.left) + size(h.right);</span><br><span class="line">        <span class="keyword">return</span> h;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Key <span class="title">min</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> min(root).key;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Value <span class="title">get</span><span class="params">(Key key)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> get(root, key);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> Value <span class="title">get</span><span class="params">(Node x, Key key)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (x == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">int</span> cmp = key.compareTo(x.key);</span><br><span class="line">        <span class="keyword">if</span> (cmp &lt; <span class="number">0</span>) <span class="keyword">return</span> get(x.left, key);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (cmp &gt; <span class="number">0</span>) <span class="keyword">return</span> get(x.right, key);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> x.value;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> Node <span class="title">min</span><span class="params">(Node x)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (x.left == <span class="keyword">null</span>) <span class="keyword">return</span> x;</span><br><span class="line">        <span class="keyword">return</span> min(x.left);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> size(root) == <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> Node <span class="title">moveRedLeft</span><span class="params">(Node h)</span>    <span class="comment">//这个函数是用来处理2节点的</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        flipColors(h);      <span class="comment">//把上面的节点"拉下来"，形成一个大节点</span></span><br><span class="line">        <span class="keyword">if</span> (isRed(h.right.left))</span><br><span class="line">        &#123;</span><br><span class="line">            h.right = rotateRight(h.right);</span><br><span class="line">            h = rotateLeft(h);</span><br><span class="line">            flipColors(h);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> h;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">flipColors</span><span class="params">(Node h)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        h.color = BLACK;</span><br><span class="line">        h.left.color = RED;</span><br><span class="line">        h.right.color = RED;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">deleteMin</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!isRed(root.left) &amp;&amp; !isRed(root.right))</span><br><span class="line">            root.color = RED;</span><br><span class="line">        root = deleteMin(root);</span><br><span class="line">        <span class="keyword">if</span> (!isEmpty()) root.color = BLACK;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> Node <span class="title">deleteMin</span><span class="params">(Node h)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (h.left == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">if</span> (!isRed(h.left) &amp;&amp; !isRed(h.left.left)) h = moveRedLeft(h);  <span class="comment">//意味着h的左子节点为一个2节点</span></span><br><span class="line">        h.left = deleteMin(h.left);</span><br><span class="line">        <span class="keyword">return</span> balance(h);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> Node <span class="title">balance</span><span class="params">(Node h)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (isRed(h.right)) h = rotateLeft(h);</span><br><span class="line">        <span class="keyword">if</span> (isRed(h.right) &amp;&amp; !isRed(h.left)) rotateRight(h);</span><br><span class="line">        <span class="keyword">if</span> (isRed(h.left.left) &amp;&amp; isRed(h.left)) rotateLeft(h);</span><br><span class="line">        <span class="keyword">if</span> (isRed(h.right) &amp;&amp; isRed(h.left)) flipColor(h);</span><br><span class="line">        h.N = <span class="number">1</span> + size(h.left) + size(h.right);</span><br><span class="line">        <span class="keyword">return</span> h;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> Node <span class="title">moveRedRight</span><span class="params">(Node h)</span></span></span><br><span class="line"><span class="function">    </span>&#123;<span class="comment">//功能和moveRedRight()类似，但是方向是向右的</span></span><br><span class="line">        flipColors(h);</span><br><span class="line">        <span class="keyword">if</span> (isRed(h.left.left))</span><br><span class="line">        &#123;</span><br><span class="line">            h = rotateRight(h);</span><br><span class="line">            flipColors(h);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> h;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">delMax</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!isRed(root.right) &amp;&amp; !isRed(root.left))</span><br><span class="line">            root.color = RED;</span><br><span class="line">        root = delMax(root);</span><br><span class="line">        <span class="keyword">if</span> (!isEmpty()) root.color = BLACK;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> Node <span class="title">delMax</span><span class="params">(Node h)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (isRed(h.left))</span><br><span class="line">            h = rotateRight(h);<span class="comment">//保证方向的一致性</span></span><br><span class="line">        <span class="keyword">if</span> (h.right == <span class="keyword">null</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;<span class="comment">//找到最右的节点就删除。</span></span><br><span class="line">        <span class="keyword">if</span> (!isRed(h.right) &amp;&amp; !isRed(h.right.left))</span><br><span class="line">            h = moveRedRight(h);<span class="comment">//右子节点为2节点的话就运行这个函数将其变成至少3节点</span></span><br><span class="line">        h.right = delMax(h.right);</span><br><span class="line">        <span class="keyword">return</span> balance(h);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">delete</span><span class="params">(Key key)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!isRed(root.right) &amp;&amp; !isRed(root.left))</span><br><span class="line">            root.color = RED;</span><br><span class="line">        root = delete(root, key);</span><br><span class="line">        <span class="keyword">if</span> (!isEmpty()) root.color = BLACK;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> Node <span class="title">delete</span><span class="params">(Node h, Key key)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (key.compareTo(h.key) &lt; <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (!isRed(h.left) &amp;&amp; !isRed(h.left.left))</span><br><span class="line">                h = moveRedLeft(h);</span><br><span class="line">            h.left = delete(h.left, key);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (isRed(h.left))</span><br><span class="line">                h = rotateRight(h);</span><br><span class="line">            <span class="keyword">if</span> (key.compareTo(h.key) == <span class="number">0</span> &amp;&amp; (h.right == <span class="keyword">null</span>))</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">            <span class="keyword">if</span> (!isRed(h.right) &amp;&amp; !isRed(h.right.left))</span><br><span class="line">                h = moveRedRight(h);</span><br><span class="line">            <span class="keyword">if</span> (key.compareTo(h.key) == <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                h.value = get(h.right, min(h.right).key);</span><br><span class="line">                h.key = min(h.right).key;</span><br><span class="line">                h.right = deleteMin(h.right);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> h.right = delete(h.right, key);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> balance(h);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>在下面的私有的delete()函数中，首先也是查找，小于根节点就在左子树中继续查找，这中间，遇到2节点要用moveRedLeft()函数构造出临时的3或者4节点，方便最后删除。大于或等于根节点的情况下，但是可以看出，在这一块代码中，前三句基本就是deleteMax()中的，这是因为沿着右子树下降的过程中，我们依然要保证当前节点不是2节点，而这也是deleteMax()所要求的。最后一个条件句很好理解，就是我们找到了目标键，但是这个键不是叶节点，那么我们就把这个键的右子树的最小节点的键和值都赋给它，然后删除右子树的最小值，这样就删除了目标键并且整个树还是有序的，平衡的。</strong></li>
+</ul>
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p><a href="https://blog.csdn.net/leonliu1995/article/details/78374492" target="_blank" rel="noopener">https://blog.csdn.net/leonliu1995/article/details/78374492</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">背包</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">查找</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">栈</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">平衡树</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">队列</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">递归</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">回溯</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">红黑树</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -222,17 +239,104 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/06/18/%E7%BA%A2%E9%BB%91%E6%A0%91/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2020/06/18/%E4%BA%8C%E5%8F%89%E6%9F%A5%E6%89%BE%E6%A0%91/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">二叉查找树</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -255,9 +359,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
