@@ -6,15 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: 查找 | CC</title>
+  <title>熵简科技面经 | CC</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="CC">
-<meta property="og:url" content="http://yoursite.com/tags/%E6%9F%A5%E6%89%BE/index.html">
+  <meta name="description" content="熵简科技面经">
+<meta property="og:type" content="article">
+<meta property="og:title" content="熵简科技面经">
+<meta property="og:url" content="http://yoursite.com/2020/11/03/%E7%86%B5%E7%AE%80%E7%A7%91%E6%8A%80%E9%9D%A2%E7%BB%8F/index.html">
 <meta property="og:site_name" content="CC">
+<meta property="og:description" content="熵简科技面经">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://s1.ax1x.com/2020/11/03/BrIU6H.md.jpg">
+<meta property="article:published_time" content="2020-11-03T12:58:26.000Z">
+<meta property="article:modified_time" content="2020-11-03T13:17:40.288Z">
 <meta property="article:author" content="CC-fake">
+<meta property="article:tag" content="面经">
+<meta property="article:tag" content="排序算法">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/11/03/BrIU6H.md.jpg">
   
     <link rel="alternative" href="/atom.xml" title="CC" type="application/atom+xml">
   
@@ -148,132 +156,206 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-熵简科技面经" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/18/%E7%BA%A2%E9%BB%91%E6%A0%91/" class="archive-article-date">
-  	<time datetime="2020-06-18T13:53:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-18</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/18/%E7%BA%A2%E9%BB%91%E6%A0%91/">红黑树</a>
+    <h1 class="article-title" itemprop="name">
+      熵简科技面经
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2020/11/03/%E7%86%B5%E7%AE%80%E7%A7%91%E6%8A%80%E9%9D%A2%E7%BB%8F/" class="archive-article-date">
+  	<time datetime="2020-11-03T12:58:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="熵简科技面经"><a href="#熵简科技面经" class="headerlink" title="熵简科技面经"></a>熵简科技面经</h2><a id="more"></a>
+
+<ol>
+<li><p>几种排序算法及他们的时间复杂度</p>
+<p><a href="https://imgchr.com/i/BrIU6H" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/11/03/BrIU6H.md.jpg" alt="BrIU6H.md.jpg"></a></p>
+</li>
+<li><p>为什么用主流语言底层都用快速排序</p>
+<p>数据越无序对快排来说越有利，Java数组小于47用的插入排序</p>
+</li>
+<li><p>volatile 保证多线程能一直读到最新的值但不保证线程安全，即写操作会写入不是预期的值</p>
+<p>atomic 提供了原子操作，支持多线程</p>
+</li>
+<li><p>深拷贝：对有向图的拷贝，用Map来存储新建的结点，可以用原来的结点的内存作为HashCode来映射新结点</p>
+</li>
+<li><p>数据结构：栈 队列 堆</p>
+<p>优先队列：底层用堆来实现</p>
+</li>
+<li><p>Http协议：在浏览器输入<a href="http://www.baidu.com并回车后发生了什么" target="_blank" rel="noopener">www.baidu.com并回车后发生了什么</a></p>
+<p>1.DNS解析 2.TCP连接 3.发送HTTP请求 4.服务器处理请求并返回HTTP报文 5.浏览器解析渲染页面</p>
+</li>
+<li><p>DNS解析，如果没有调下一步</p>
+<ol>
+<li><p>看本地hosts文件是否有网站映关系</p>
+</li>
+<li><p>查看本地DNS解析器缓存</p>
+</li>
+<li><p>找设置中的首选DNS服务器</p>
+</li>
+<li><p>查上一步服务器中的缓存</p>
+</li>
+<li><p>是否设置了转发模式</p>
+<p>若是则逐级往上查DNS服务器</p>
+<p>若否，则请求13台根服务器并判断具体是由谁管理</p>
+</li>
+</ol>
+</li>
+<li><p>Linux文件系统：两个线程打开一个文件，一个读一个写，此时再开一个线程打开这个文件会发生什么</p>
+</li>
+<li><p>父进程和子进程的关系</p>
+<p>子进程是父进程的复制品，拥有复制时父进程的所有数据，各自拥有独立的地址空间。</p>
+</li>
+<li><p>虚拟内存和物理内存是如何对应的</p>
+<p>CPU用来把虚拟地址转换成物理地址的信息存放在叫做页目录和页表的结构里</p>
+<p><a href="https://www.nowcoder.com/ta/review-c/review?page=77" target="_blank" rel="noopener">https://www.nowcoder.com/ta/review-c/review?page=77</a></p>
+</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">查找</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">面经</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">平衡树</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">红黑树</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">排序算法</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/算法第四版//" class="article-tag-list-link color1">算法第四版</a>
+        			<a href="/categories/面经//" class="article-tag-list-link color3">面经</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/11/03/%E7%86%B5%E7%AE%80%E7%A7%91%E6%8A%80%E9%9D%A2%E7%BB%8F/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/18/%E4%BA%8C%E5%8F%89%E6%9F%A5%E6%89%BE%E6%A0%91/" class="archive-article-date">
-  	<time datetime="2020-06-18T13:50:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-18</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/06/18/%E7%BA%A2%E9%BB%91%E6%A0%91/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">红黑树</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/18/%E4%BA%8C%E5%8F%89%E6%9F%A5%E6%89%BE%E6%A0%91/">二叉查找树</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">二叉树</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">查找</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/算法第四版//" class="article-tag-list-link color1">算法第四版</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+
   
   
-    </div></section>
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -296,9 +378,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
